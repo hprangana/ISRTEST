@@ -1,0 +1,10 @@
+node{
+    stage("dep stage..."){
+   echo "test"
+     sshagent (credentials: ['tomcat-dev']) {
+         sh 'pwd'
+ sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.59.87.6 ls'
+ sh 'scp -o StrictHostKeyChecking=no test.war ec2-user@13.59.87.6:~'
+}
+}
+}
